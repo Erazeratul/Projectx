@@ -37,6 +37,7 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
 - task: DownloadBuildArtifacts@1
   inputs:
     buildType: 'current'
@@ -54,4 +55,4 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: 'WebApp1CICD'
     SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/drop/*.zip'
+    packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
